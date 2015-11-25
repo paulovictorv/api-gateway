@@ -1,4 +1,4 @@
-package br.com.clip.repository;
+package br.com.clip.model;
 
 /**
  * Created by paulo on 24/11/15.

@@ -1,5 +1,7 @@
 package br.com.clip.repository;
 
+import br.com.clip.model.API;
+
 import java.util.HashSet;
 
 /**
@@ -7,6 +9,6 @@ import java.util.HashSet;
  */
 public class APIRepository {
     public API getApiForPath(String path) {
-        return new API("", new HashSet<>());
+        return new API("http://localhost:8080/", new HashSet<>());
     }
 }
