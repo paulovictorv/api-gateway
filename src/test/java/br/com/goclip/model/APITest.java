@@ -4,8 +4,6 @@ import br.com.clip.model.API;
 import br.com.clip.model.Route;
 import org.junit.Test;
 
-import java.util.HashSet;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -16,14 +14,12 @@ public class APITest {
 
     @Test
     public void shouldFindCorrectRoute() throws InterruptedException {
-        HashSet<Route> routes = new HashSet<>();
-        routes.add(new Route("GET", "/test"));
-
-        API api = new API("/api", routes);
+        API api = new API("/api");
+        api.addRoute("GET", "/test");
 
         Route route = api.route("GET", "/test");
 
-        assertThat(route, equalTo(new Route("GET", "/test")));
+        assertThat(route, equalTo(new Route(api.rootUrl, "GET", "/test")));
     }
 
 }

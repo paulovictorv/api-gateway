@@ -1,5 +1,6 @@
 package br.com.clip.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -7,17 +8,21 @@ import java.util.Set;
  */
 public class API {
 
-    private String rootUrl;
+    public final String rootUrl;
     private Set<Route> routes;
 
-    public API(String rootUrl, Set<Route> routes) {
+    public API(String rootUrl) {
         this.rootUrl = rootUrl;
-        this.routes = routes;
+        routes = new HashSet<>();
+    }
+
+    public void addRoute(String method, String path) {
+        routes.add(new Route(rootUrl, method, path));
     }
 
     public Route route(String method, String path) {
         return routes.stream()
-                .filter(rt -> rt.equals(new Route(method, path)))
+                .filter(rt -> rt.equals(new Route(rootUrl, method, path)))
                 .findFirst()
                 .get();
     }

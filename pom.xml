@@ -33,9 +33,17 @@
             <version>0.11.2</version>
         </dependency>
         <dependency>
-            <groupId>org.jdeferred</groupId>
-            <artifactId>jdeferred-core</artifactId>
-            <version>1.2.4</version>
+            <groupId>org.jooby</groupId>
+            <artifactId>jooby</artifactId>
+            <scope>test</scope>
+            <version>0.11.2</version>
+            <classifier>tests</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>fluent-hc</artifactId>
+            <version>4.5.1</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
